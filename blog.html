@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <title>How i Grow</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand logo" href="#">How i Grow</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                  
+              </ul>
+              <button class="btn btn-light ml-3 add-blog" id="addBlogBtn"><i class="fa-solid fa-pen-nib"></i> Write Your Blog</button>
+          </div>
+      </div>
+  </nav>
+
+    <div class="container mt-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title" id="blogTitle"></h2>
+          <p class="card-text text-muted" id="blogPoster"></p>
+          <div id="blogDescription" class="mb-3"></div>
+          <div id="blogContent"></div>
+        </div>
+      </div>
+      <button class="btn btn-secondary" onclick="window.history.back()">
+        <i class="fa-solid fa-backward"></i>  Back
+      </button>
+
+      <div id="successMessage" class="alert alert-success d-none mt-3">
+        Blog deleted successfully!
+      </div>
+
+      <div id="successMessage" class="alert alert-success d-none mt-3">
+        Blog deleted successfully!
+      </div>
+    </div>
+    <br>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="index.html" class="text-light">Home</a></li>
+                      <li><a href="about.html" class="text-light">About</a></li>
+                      <li><a href="contact.html" class="text-light">Contact</a></li>
+                      <li><a href="#" class="text-light">Blog Categories</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>About Us</h5>
+                  <p>Your trusted source for learning. Join us to enhance your skills and explore the latest trends in technology.</p>
+              </div>
+              <div class="col-md-3">
+                  <h5>Contact Info</h5>
+                  <ul class="list-unstyled">
+                      <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:arslanhaiderchand88@gmail.com" class="text-light email">arslanhaiderchand88@gmail.com</a></li>
+                      <li><i class="fa-solid fa-phone"></i> Phone: <a href="tel:+123456789" class="text-light">(+92) 3217077229</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Follow Us</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="https://www.linkedin.com/in/arslan-haider-a0b297257/" class="text-light"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                      <li><a href="https://web.facebook.com/profile.php?id=100066694849448/" class="text-light"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                      <li><a href="https://wa.me/923217077229" class="text-light"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <script>
+      const blogId = new URLSearchParams(window.location.search).get("id");
+      const blogKey = `blog_${blogId}`;
+      console.log("Blog ID:", blogId);
+
+      const blog = JSON.parse(localStorage.getItem(blogKey));
+      console.log("Blog Data:", blog);
+
+      if (blog) {
+        document.getElementById("blogTitle").innerText = blog.title;
+        document.getElementById("blogPoster").innerText = `Written by ${blog.poster}`;
+        // Remove image setting
+        // document.getElementById("blogImage").src = blog.image; // This line is removed
+        document.getElementById("blogDescription").innerHTML = `<strong>Description:</strong> ${blog.description}`;
+        document.getElementById("blogContent").innerHTML = blog.content;
+
+        document.querySelector('meta[name="description"]').setAttribute("content", blog.description);
+        document.title = `${blog.title} - PWSkills Blog`;
+      } else {
+        document.querySelector(".container").innerHTML = "<p>Blog post not found.</p>";
+      }
+
+      // Removed the deleteBlog function since delete functionality is hidden
+    </script>
+  </body>
+</html>

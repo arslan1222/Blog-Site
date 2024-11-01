@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.blog-post {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    
+}
+
+.logo, .brand {
+    font-family: "Playwrite GB S", cursive;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
+
+
+.add-blog {
+    background-color: #f8f9fa;
+    border-radius: 50px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+/* Mobile-First Styles */
+header {
+    background-color: #17a2b8;
+    color: #ffffff;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+header p.lead {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Larger Screens */
+@media (min-width: 576px) {
+    header {
+        padding: 50px 0;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p.lead {
+        font-size: 1.25rem;
+    }
+}
+
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.blog-content h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+}
+
+.blog-content .text-muted {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.blog-content .lead {
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+.blog-text {
+    font-size: 1.1rem;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.btn-secondary {
+    font-size: 1rem;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+
+.blog-post {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog-post {
+    flex: 1 1 calc(75% - 20px);
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.blog-image {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.btn-secondary, .btn-primary {
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-secondary:hover, .btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+footer h5 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+footer p, footer a, footer li {
+    font-size: 0.9rem;
+    color: #f8f9fa;
+    margin-bottom: 10px;
+    display: block;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+/* Mobile-First */
+footer .container .row {
+    display: block;
+    text-align: left;
+}
+
+footer .container .col-md-3 {
+    margin-bottom: 20px;
+}
+
+.email {
+    font-size: 12px;
+}
+
+@media (min-width: 576px) {
+    footer .container .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .container .col-md-3 {
+        margin-bottom: 0;
+        text-align: left;
+    }
+}
+
+
